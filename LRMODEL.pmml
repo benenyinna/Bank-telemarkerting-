@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<PMML version="4.4.1" xmlns="http://www.dmg.org/PMML-4_4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_4 http://www.dmg.org/pmml/v4-4/pmml-4-4.xsd">
+ <Header copyright="Copyright (c) 2022 benny" description="Generalized Linear Regression Model">
+  <Extension name="user" value="benny" extender="SoftwareAG PMML Generator"/>
+  <Application name="SoftwareAG PMML Generator" version="2.5.2"/>
+  <Timestamp>2022-04-30 04:48:01</Timestamp>
+ </Header>
+ <DataDictionary numberOfFields="16">
+  <DataField name="response" optype="categorical" dataType="string">
+   <Value value="0"/>
+   <Value value="1"/>
+  </DataField>
+  <DataField name="age" optype="continuous" dataType="double"/>
+  <DataField name="marital" optype="categorical" dataType="string">
+   <Value value="single"/>
+   <Value value="married"/>
+   <Value value="divorced"/>
+  </DataField>
+  <DataField name="education" optype="categorical" dataType="string">
+   <Value value="primary"/>
+   <Value value="secondary"/>
+   <Value value="tertiary"/>
+  </DataField>
+  <DataField name="credit_def" optype="categorical" dataType="string">
+   <Value value="no"/>
+   <Value value="yes"/>
+  </DataField>
+  <DataField name="Avey_bal" optype="continuous" dataType="double"/>
+  <DataField name="house_loan" optype="categorical" dataType="string">
+   <Value value="no"/>
+   <Value value="yes"/>
+  </DataField>
+  <DataField name="personal_loan" optype="categorical" dataType="string">
+   <Value value="no"/>
+   <Value value="yes"/>
+  </DataField>
+  <DataField name="communication" optype="categorical" dataType="string">
+   <Value value="cellular"/>
+   <Value value="telephone"/>
+  </DataField>
+  <DataField name="day" optype="continuous" dataType="double"/>
+  <DataField name="month" optype="categorical" dataType="string">
+   <Value value="apr"/>
+   <Value value="aug"/>
+   <Value value="dec"/>
+   <Value value="feb"/>
+   <Value value="jan"/>
+   <Value value="jul"/>
+   <Value value="jun"/>
+   <Value value="mar"/>
+   <Value value="may"/>
+   <Value value="nov"/>
+   <Value value="oct"/>
+   <Value value="sep"/>
+  </DataField>
+  <DataField name="call_duration" optype="continuous" dataType="double"/>
+  <DataField name="campaign" optype="continuous" dataType="double"/>
+  <DataField name="pdays" optype="continuous" dataType="double"/>
+  <DataField name="previous" optype="continuous" dataType="double"/>
+  <DataField name="poutcome" optype="categorical" dataType="string">
+   <Value value="success"/>
+   <Value value="failure"/>
+  </DataField>
+ </DataDictionary>
+ <GeneralRegressionModel modelName="General_Regression_Model" modelType="generalizedLinear" functionName="classification" algorithmName="glm" distribution="binomial" linkFunction="logit">
+  <MiningSchema>
+   <MiningField name="response" usageType="predicted" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="age" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="marital" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="education" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="credit_def" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="Avey_bal" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="house_loan" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="personal_loan" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="communication" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="day" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="month" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="call_duration" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="campaign" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="pdays" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="previous" usageType="active" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="poutcome" usageType="active" invalidValueTreatment="returnInvalid"/>
+  </MiningSchema>
+  <Output>
+   <OutputField name="Probability_1" targetField="response" feature="probability" value="1" optype="continuous" dataType="double"/>
+   <OutputField name="Predicted_response" feature="predictedValue" optype="categorical" dataType="string"/>
+  </Output>
+  <ParameterList>
+   <Parameter name="p0" label="(Intercept)"/>
+   <Parameter name="p1" label="age"/>
+   <Parameter name="p2" label="maritalmarried"/>
+   <Parameter name="p3" label="maritaldivorced"/>
+   <Parameter name="p4" label="educationsecondary"/>
+   <Parameter name="p5" label="educationtertiary"/>
+   <Parameter name="p6" label="credit_defyes"/>
+   <Parameter name="p7" label="Avey_bal"/>
+   <Parameter name="p8" label="house_loanyes"/>
+   <Parameter name="p9" label="personal_loanyes"/>
+   <Parameter name="p10" label="communicationtelephone"/>
+   <Parameter name="p11" label="day"/>
+   <Parameter name="p12" label="monthaug"/>
+   <Parameter name="p13" label="monthdec"/>
+   <Parameter name="p14" label="monthfeb"/>
+   <Parameter name="p15" label="monthjan"/>
+   <Parameter name="p16" label="monthjul"/>
+   <Parameter name="p17" label="monthjun"/>
+   <Parameter name="p18" label="monthmar"/>
+   <Parameter name="p19" label="monthmay"/>
+   <Parameter name="p20" label="monthnov"/>
+   <Parameter name="p21" label="monthoct"/>
+   <Parameter name="p22" label="monthsep"/>
+   <Parameter name="p23" label="call_duration"/>
+   <Parameter name="p24" label="campaign"/>
+   <Parameter name="p25" label="pdays"/>
+   <Parameter name="p26" label="previous"/>
+   <Parameter name="p27" label="poutcomefailure"/>
+  </ParameterList>
+  <FactorList>
+   <Predictor name="marital"/>
+   <Predictor name="education"/>
+   <Predictor name="credit_def"/>
+   <Predictor name="house_loan"/>
+   <Predictor name="personal_loan"/>
+   <Predictor name="communication"/>
+   <Predictor name="month"/>
+   <Predictor name="poutcome"/>
+  </FactorList>
+  <CovariateList>
+   <Predictor name="age"/>
+   <Predictor name="Avey_bal"/>
+   <Predictor name="day"/>
+   <Predictor name="call_duration"/>
+   <Predictor name="campaign"/>
+   <Predictor name="pdays"/>
+   <Predictor name="previous"/>
+  </CovariateList>
+  <PPMatrix>
+   <PPCell value="1" predictorName="age" parameterName="p1"/>
+   <PPCell value="married" predictorName="marital" parameterName="p2"/>
+   <PPCell value="divorced" predictorName="marital" parameterName="p3"/>
+   <PPCell value="secondary" predictorName="education" parameterName="p4"/>
+   <PPCell value="tertiary" predictorName="education" parameterName="p5"/>
+   <PPCell value="yes" predictorName="credit_def" parameterName="p6"/>
+   <PPCell value="1" predictorName="Avey_bal" parameterName="p7"/>
+   <PPCell value="yes" predictorName="house_loan" parameterName="p8"/>
+   <PPCell value="yes" predictorName="personal_loan" parameterName="p9"/>
+   <PPCell value="telephone" predictorName="communication" parameterName="p10"/>
+   <PPCell value="1" predictorName="day" parameterName="p11"/>
+   <PPCell value="aug" predictorName="month" parameterName="p12"/>
+   <PPCell value="dec" predictorName="month" parameterName="p13"/>
+   <PPCell value="feb" predictorName="month" parameterName="p14"/>
+   <PPCell value="jan" predictorName="month" parameterName="p15"/>
+   <PPCell value="jul" predictorName="month" parameterName="p16"/>
+   <PPCell value="jun" predictorName="month" parameterName="p17"/>
+   <PPCell value="mar" predictorName="month" parameterName="p18"/>
+   <PPCell value="may" predictorName="month" parameterName="p19"/>
+   <PPCell value="nov" predictorName="month" parameterName="p20"/>
+   <PPCell value="oct" predictorName="month" parameterName="p21"/>
+   <PPCell value="sep" predictorName="month" parameterName="p22"/>
+   <PPCell value="1" predictorName="call_duration" parameterName="p23"/>
+   <PPCell value="1" predictorName="campaign" parameterName="p24"/>
+   <PPCell value="1" predictorName="pdays" parameterName="p25"/>
+   <PPCell value="1" predictorName="previous" parameterName="p26"/>
+   <PPCell value="failure" predictorName="poutcome" parameterName="p27"/>
+  </PPMatrix>
+  <ParamMatrix>
+   <PCell targetCategory="1" parameterName="p0" df="1" beta="-1.24946250137193"/>
+   <PCell targetCategory="1" parameterName="p1" df="1" beta="-0.00253784437773183"/>
+   <PCell targetCategory="1" parameterName="p2" df="1" beta="-0.0431132027491049"/>
+   <PCell targetCategory="1" parameterName="p3" df="1" beta="-0.0782344377506803"/>
+   <PCell targetCategory="1" parameterName="p4" df="1" beta="0.274121561376869"/>
+   <PCell targetCategory="1" parameterName="p5" df="1" beta="0.332883840710093"/>
+   <PCell targetCategory="1" parameterName="p6" df="1" beta="-1.49061893965824"/>
+   <PCell targetCategory="1" parameterName="p7" df="1" beta="1.81045299510167e-05"/>
+   <PCell targetCategory="1" parameterName="p8" df="1" beta="-0.84745654758294"/>
+   <PCell targetCategory="1" parameterName="p9" df="1" beta="-0.405127706332926"/>
+   <PCell targetCategory="1" parameterName="p10" df="1" beta="-0.435943088229434"/>
+   <PCell targetCategory="1" parameterName="p11" df="1" beta="0.0176705268559058"/>
+   <PCell targetCategory="1" parameterName="p12" df="1" beta="1.2316334114544"/>
+   <PCell targetCategory="1" parameterName="p13" df="1" beta="0.71865291239752"/>
+   <PCell targetCategory="1" parameterName="p14" df="1" beta="0.525634706207766"/>
+   <PCell targetCategory="1" parameterName="p15" df="1" beta="-0.718805481354196"/>
+   <PCell targetCategory="1" parameterName="p16" df="1" beta="1.0560655098807"/>
+   <PCell targetCategory="1" parameterName="p17" df="1" beta="1.408023991134"/>
+   <PCell targetCategory="1" parameterName="p18" df="1" beta="1.62300543239351"/>
+   <PCell targetCategory="1" parameterName="p19" df="1" beta="0.037914386974277"/>
+   <PCell targetCategory="1" parameterName="p20" df="1" beta="0.0178872948005069"/>
+   <PCell targetCategory="1" parameterName="p21" df="1" beta="1.29601942235916"/>
+   <PCell targetCategory="1" parameterName="p22" df="1" beta="1.54031585377532"/>
+   <PCell targetCategory="1" parameterName="p23" df="1" beta="0.00388953073582868"/>
+   <PCell targetCategory="1" parameterName="p24" df="1" beta="-0.184982855370058"/>
+   <PCell targetCategory="1" parameterName="p25" df="1" beta="0.00104518047369487"/>
+   <PCell targetCategory="1" parameterName="p26" df="1" beta="0.0397698745750787"/>
+   <PCell targetCategory="1" parameterName="p27" df="1" beta="-2.08047657798541"/>
+  </ParamMatrix>
+ </GeneralRegressionModel>
+</PMML>
